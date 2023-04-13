@@ -86,8 +86,6 @@ bash
 
 - Install helper packages for Kubernetes.
 
-  #### https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/
-
 ```bash
 # Update the apt package index and install packages needed to use the Kubernetes apt repository:
 
@@ -113,7 +111,7 @@ sudo apt-get install -y kubectl kubeadm kubelet kubernetes-cni docker.io
 sudo apt-mark hold kubelet kubeadm kubectl
 ```
 
-- Start and enable Docker service.
+- Start and enable Docker service.3
 
 ```bash
 sudo systemctl start docker
@@ -141,8 +139,8 @@ sudo sysctl --system
 ```
 
 - Configure containerd so that it starts using systemd as cgroup.
-  #### https://kubernetes.io/docs/setup/production-environment/container-runtimes/
-```bash 
+
+```bash
 sudo mkdir /etc/containerd
 sudo containerd config default | sudo tee /etc/containerd/config.toml >/dev/null 2>&1
 sudo sed -i 's/SystemdCgroup \= false/SystemdCgroup \= true/g' /etc/containerd/config.toml
@@ -207,8 +205,8 @@ Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
 
 Then you can join any number of worker nodes by running the following on each as root:
 
-kubeadm join 172.31.80.13:6443 --token 4xfh1s.aqn09clhhj9ko1hl \
-        --discovery-token-ca-cert-hash sha256:518cd6aed8622fcbcc1019ffa69fa8313d27ea878ff9a7503468191d4b129787
+kubeadm join 172.31.19.226:6443 --token 9tx5zh.p6s4njz4f2lvzz1v \
+        --discovery-token-ca-cert-hash sha256:252671bcdd346adc2ecf7bf78defa1f27505b12947215930c5e1e57ccddcf037
 ```
 
 > Note down the `kubeadm join ...` part in order to connect your worker nodes to the master node. Remember to run this command with `sudo`.
@@ -225,7 +223,6 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 ```bash
 kubectl apply -f https://github.com/coreos/flannel/raw/master/Documentation/kube-flannel.yml
-# 8472 Portunu flannel icin actik
 ```
 
 - Master node (also named as Control Plane) should be ready, show existing pods created by user. Since we haven't created any pods, list should be empty.
@@ -238,7 +235,6 @@ kubectl get nodes
 
 ```bash
 kubectl get pods -n kube-system
-# Bu komutla kube-system altindaki containerleri görürüz
 ```
 
 - Show the details of pods in `kube-system` namespace. Note that pods of Kubernetes service are running on the master node.
@@ -363,14 +359,14 @@ kubectl get pods
   sudo kubeadm reset
   ```
   
-Note: If you try to have worker rejoin cluster, it might be necessary to clean `kubelet.conf` and `ca.crt` files and free the port `10250`, before rejoining.
-
-```bash
-  sudo rm /etc/kubernetes/kubelet.conf
-  sudo rm /etc/kubernetes/pki/ca.crt
-  sudo netstat -lnp | grep 10250
-  sudo kill <process-id>
-  ```
+> Note: If you try to have worker rejoin cluster, it might be necessary to clean `kubelet.conf` and `ca.crt` files and free the port `10250`, before rejoining.
+>
+> ```bash
+>  sudo rm /etc/kubernetes/kubelet.conf
+>  sudo rm /etc/kubernetes/pki/ca.crt
+>  sudo netstat -lnp | grep 10250
+>  sudo kill <process-id>
+>  ```
 
 
 # References
