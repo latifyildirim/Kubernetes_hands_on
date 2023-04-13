@@ -1,0 +1,16 @@
+1  hostnamectl set-hostname worker
+    2  sudo hostnamectl set-hostname worker
+    3  sudo apt-get update
+    4  sudo apt-get install -y apt-transport-https ca-certificates curl
+    5  echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+    6  sudo apt-get update
+    7  sudo apt-get install -y kubectl kubeadm kubelet kubernetes-cni docker.io
+    8  sudo apt-mark hold kubelet kubeadm kubectl
+    9  sudo systemctl start docker
+   10  sudo systemctl enable docker
+   11  sudo apt-get update
+   12  sudo apt-get install -y kubectl kubeadm kubelet kubernetes-cni docker.io
+   13  sudo apt-mark hold kubelet kubeadm kubectl
+   14  sudo systemctl start docker
+   15  echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+   16  history > history-worker.txt
