@@ -1,0 +1,25 @@
+    1  kubectl get pods -w
+    2  kubectl rollout deploy claus-deploy
+    3  kubectl rollout history deploy claus-deploy
+    4* kubectl set image deploy clarus-deplo
+    5  cd deployment-lesson/
+    6  kubectl rollout history deploy claus-deploy container-info=clarusway/container-info:2.0
+    7  kubectl get resourc
+    8  kubectl get rs
+    9  kubectl set image deploy clarus-deploy container-info=clarusway/container-info:2.0
+   10* kubectl set image deploy claus-deploy container-info=clarusway/container-info:2.0 
+   11  kubectl rollout history deploy clarus-deploy
+   12  kubectl rollout history deploy clarus-deploy --revision=1
+   13  kubectl rollout history deploy clarus-deploy --revision=2
+   14  kubectl get deploy,rs,po -l app=container-info
+   15  kubectl edit deploy/clarus-deploy
+   16  kubectl rollout histoy deploy clarus-deploy
+   17  kubectl rollout history deploy clarus-deploy
+   18  kubectl get rs
+   19  kubectl rollout history deploy clarus-deploy --revision=2
+   20  kubectl rollout undo deploy clarus-deploy --to-revision=1
+   21  kubectl rollout history deploy clarus-deploy
+   22  kubectl rollout undo deploy clarus-deploy --to-revision=3
+   23  kubectl rollout history deploy clarus-deploy
+   24  cd ..
+   25  history > history-master2.txt

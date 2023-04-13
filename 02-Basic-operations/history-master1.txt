@@ -1,0 +1,135 @@
+    1  kubectl cluster-info
+    2  kubectl get node
+    3  kubectl get no
+    4  kubectl get po
+    5  kubectl get svc
+    6  kubectl api-resources
+    7  kubectl api-resources | grep po
+    8  kubectl api-resources | grep pods
+    9  kubectl api-resources | grep resources
+   10  kubectl --help
+   11  kubectl help
+   12  kubectl explain no
+   13  code mypod.yaml
+   14  kubectl explain po
+   15  kubectl api-resources | grep pods
+   16  kubectl help
+   17  kubectl create -f mypod.yaml 
+   18  kubectl get pods
+   19  kubectl get po
+   20  kubectl get pod
+   21  kubectl get pods -o wide
+   22  kubectl get pod
+   23  kubectl get nodes
+   24  kubectl help
+   25  docker help
+   26  kubectl get pods/nginx-pod -o yaml
+   27  kubeadm init --pod-network-cidr=10.244.0.0/16 --ignore-preflight-errors=All
+   28  sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --ignore-preflight-errors=All
+   29  kubectl get nodes
+   30  kubectl get pod
+   31  kubectl describe pods/nginx-pod
+   32  kubectl delete -d mypod.yaml 
+   33  kubectl delete -f mypod.yaml 
+   34  kubectl get pod
+   35  kubectl explain replicaset
+   36  kubectl apply -f myreplicaset.yaml
+   37  kubectl get po
+   38  kubectl apply -f myreplicaset.yaml
+   39  kubectl get pod
+   40  kubectl get relicaset
+   41  kubectl get replicaset
+   42  kubectl get pods -o wide
+   43  kubectl describe replicaset nginx-rs
+   44  kubectl delete replicaset nginx-rs
+   45  kubectl get pods -o wide
+   46  kubectl get node
+   47  kubectl apply -f myreplicaset.yaml 
+   48  kubectl nodes ls
+   49  kubectl nodes 
+   50  kubectl node 
+   51  kubectl node ls
+   52  kubectl get node ls
+   53  kubectl get node 
+   54  kubectl get pod
+   55  kubectl delete -f .
+   56  kubectl get rs
+   57  kubectl delete replicaset nginx-rs
+   58  kubectl apply -f mypod.yaml
+   59  kubectl get nod
+   60  kubectl get nods
+   61  kubectl get node
+   62  kubectl get po
+   63  kubectl apply -f myreplicaset.yaml
+   64  kubectl get po
+   65  kubectl delete -f .
+   66  kubectl get po
+   67  kubectl explain deployments
+   68  kubectl apply -f mydeployment.yaml
+   69  kubectl get pods
+   70* kubectl get deployments 
+   71  kubectl get pods -o wide
+   72  kubectl describe deploy/nginx-deployment
+   73  kubectl apply -f mydeployment.yaml
+   74  kubectl delete -f .
+   75  kubectl apply -f mydeployment.yaml
+   76  kubectl delete -f 
+   77  kubectl delete -f .
+   78  kubectl apply -f mydeployment.yaml
+   79  kubectl get nod
+   80  kubectl get pod
+   81  kubectl logs nginx-deployment-6c66b475c4-7w8g8
+   82  kubectl get node
+   83  kubectl logs kube-worker-1
+   84  kubectl get pods
+   85  kubectl exec nginx-deployment-6c66b475c4-7w8g8 -- date
+   86  kubectl exec nginx-deployment-6c66b475c4-7w8g8 -- pwd
+   87  kubectl exec nginx-deployment-6c66b475c4-7w8g8 -- cat /usr/share/nginx/html/index
+   88  kubectl exec nginx-deployment-6c66b475c4-7w8g8 -- cat /usr/share/nginx/html/index.html
+   89  kubectl exec -it nginx-deployment-6c66b475c4-7w8g8 
+   90  kubectl exec -it nginx-deployment-6c66b475c4-7w8g8 --
+   91  kubectl exec -it nginx-deployment-6c66b475c4-7w8g8 -- bash
+   92  kubectl get rs
+   93  kubectl describe rs nginx-deployment-6c66b475c4 
+   94  kubectl get node
+   95  kubectl get pod
+   96  kubectl scale deploy nginx-deployment --replicas=5
+   97  kubectl get pod
+   98  kubectl delete pod 7
+   99  kubectl delete pod 6c66b475c4-7w
+  100  kubectl delete pod nginx-deployment-6c66b475c4-7w8g8
+  101  kubectl get pod
+  102  kubectl delete pod nginx-deployment-6c66b475c4-n2hgx
+  103  kubectl get pod
+  104  kubectl delete deploy nginx-deployment
+  105  kubectl get pod
+  106  mkdir deployment-lesson
+  107  cd deployment-lesson
+  108  touch clarus-deploy.yaml
+  109  kubectl apply -f clarus-deploy.yaml
+  110  kubectl get deploy,rs,po
+  111  kubectl get deploy,rs,po -l app=container-info
+  112  kubectl describe deploy clarus-deploy
+  113  kubectl rollout history deploy clarus-deploy --revision=1
+  114  kubectl get deploy,rs,po -l app=container-info
+  115  kubectl describe deploy clarus-deploy
+  116  kubectl get deploy,rs,po
+  117  kubectl get pod
+  118  kubectl delete deploy -l app=container-info
+  119  kubectl get pod
+  120  kubectl get namespaces
+  121  kubectl get -n po
+  122  kubectl get po -o kube-system
+  123  kubectl get po -n kube-system
+  124  cd ..
+  125  kubectl apply -f ./my-namespace.yaml 
+  126  kubectl create namespace latif-namespace
+  127  kubectl create namespace clarus-namespace
+  128  kubectl create deployment default-ns --image=nginx
+  129  kubectl create deployment clarus-ns --image=nginx -n=clarus-namespace
+  130  kubectl get deployment
+  131  kubectl get deployment -n --name=clarus-namespace
+  132  kubectl get deployment -n clarus-namespace
+  133  kubectl get deployment -o wide --all-namespaces
+  134  kubectl delete namespaces clarus-namespace
+  135  history > history-master1.txt
