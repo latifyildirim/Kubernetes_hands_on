@@ -245,6 +245,7 @@ kubectl get pods -n kube-system
 
 ```bash
 kubectl get pods -n kube-system -o wide
+# output u genis bir sekilde görürüz
 ```
 
 - Get the services available. Since we haven't created any services yet, we should see only Kubernetes service.
@@ -263,8 +264,8 @@ kubectl get nodes
 - Run `sudo kubeadm join...` command to have them join the cluster.
 
 ```bash
-sudo kubeadm join 172.31.3.109:6443 --token 1aiej0.kf0t4on7c7bm2hpa \
-    --discovery-token-ca-cert-hash sha256:0e2abfb56733665c0e6204217fef34be2a4f3c4b8d1ea44dff85666ddf722c02
+kubeadm join 172.31.80.13:6443 --token 4xfh1s.aqn09clhhj9ko1hl \
+        --discovery-token-ca-cert-hash sha256:518cd6aed8622fcbcc1019ffa69fa8313d27ea878ff9a7503468191d4b129787
 ```
 
 - Go to the master node. Get the list of nodes. Now, we should see the new worker nodes in the list.
