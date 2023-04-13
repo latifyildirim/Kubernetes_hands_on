@@ -1,0 +1,38 @@
+1  sudo apt-get update
+    2  sudo apt-get install -y apt-transport-https ca-certificates curl 
+    4  sudo hostnamectl set-hostname master
+    5  bash
+    6  echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+    7  sudo apt-get update
+    8  sudo apt-get install -y kubectl kubeadm kubelet kubernetes-cni docker.io
+    9  sudo apt-mark hold kubelet kubeadm kubectl
+   10  sudo apt-get update
+   11  sudo apt-get install -y kubectl kubeadm kubelet kubernetes-cni docker.io
+   12  sudo apt-mark hold kubelet kubeadm kubectl
+   13  sudo systemctl status docker
+   14  kubectl get service
+   15  kubectl delete service nginx-service
+   16  kubectl delete service nginx-server
+   17  kubectl get service
+   18  kubectl get node
+   19  kubectl delete pods nnginx-server
+   20  kubectl get pode
+   21  kubectl get pod
+   22  kubectl delete pods nginx-server
+   23  kubectl get nodes
+   24  kubectl cordon --help
+   25  kubectl cordon kube-worker-1
+   26  kubectl drain kube-worker-1 --ignore-daemonsets --delete-emptydir-data
+   27  kubectl get nodes
+   28  kubectl cordon kube-worker
+   29  kubectl cordon worker
+   30  kubectl get nodes
+   31  kubectl drain worker --ignore-daemonsets --delete-emptydir-data
+   32  kubectl get nodes
+   33  kubectl delete node worker
+   34  sudo kubeadmreset
+   35  sudo kubeadm reset
+   36  sudo rm /etc/kubernetes/kubelet.conf
+   37  sudo rm /etc/kubernetes/pki/ca.crt
+   38  sudo netstat -lnp | grep 10250
+   39  history > history-master.txt
