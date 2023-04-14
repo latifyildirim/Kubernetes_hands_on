@@ -95,7 +95,7 @@ cd service-lessons
 ```
 
 - Create `yaml` file named `web-flask.yaml` and explain fields of it.
-
+  ### https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
 ```yaml
 apiVersion: apps/v1 
 kind: Deployment 
