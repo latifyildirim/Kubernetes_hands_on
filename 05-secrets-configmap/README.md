@@ -631,10 +631,10 @@ kubectl apply -f k8s
 ```bash
 kubectl get svc
 NAME           TYPE           CLUSTER-IP       EXTERNAL-IP   PORT(S)        AGE
-demo-service   LoadBalancer   10.110.195.109   <pending>     80:32711/TCP   17s
+demo-service   LoadBalancer   10.110.195.109   <pending>     80:30001/TCP   17s
 kubernetes     ClusterIP      10.96.0.1        <none>        443/TCP        46d
 
-curl < worker-ip >:32711
+curl < worker-ip >:30001
 Merhaba, Clarusway!
 ```
 
