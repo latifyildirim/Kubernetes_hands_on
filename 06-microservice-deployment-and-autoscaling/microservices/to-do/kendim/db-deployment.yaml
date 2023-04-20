@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db-deployment
+  labels:
+    app: todoapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mango
+  template:
+    metadata:
+      labels:
+        name: mango
+        app: todoapp
+    spec:
+      containers:
+      - name: mango
+        image: mongo:5.0
+        ports:
+          - containerPort: 27018
+        volumeMounts:
+          - name:  mongo-storage
+            mountPath:  /data/db
+        
+      volumes:
+        - name: mongo-storage
+          persistentVolumeClaim:
+            claimName: db-pv-vol-claim
+        

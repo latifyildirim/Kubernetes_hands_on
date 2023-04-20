@@ -7,9 +7,9 @@ metadata:
     app: todoapp
 spec:
   selector:
-    name: mongo
+    app: mongo
   type: ClusterIP
   ports:
-    - name: db
-      port: 27017
-      targetPort: 27017
+  - port: 27018
+    targetPort: 27018
+    name: db

@@ -109,6 +109,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: db-deployment
+  labels:
+    app: todoapp
 spec:
   replicas: 1
   selector:
@@ -168,6 +170,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: web-deployment
+  labels:
+    app: todoapp
 spec:
   replicas: 1
   selector:
@@ -431,7 +435,7 @@ $ pwd
 $ mkdir auto-scaling && cd auto-scaling
 $ cat << EOF > hpa-php-apache.yaml
 
-apiVersion: autoscaling/v1
+apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: php-apache
@@ -442,7 +446,13 @@ spec:
     name: php-apache
   minReplicas: 2
   maxReplicas: 10
-  targetCPUUtilizationPercentage: 50
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 50
 
 EOF
 ```
@@ -450,7 +460,7 @@ EOF
 ```bash
 $ cat << EOF > hpa-web.yaml
 
-apiVersion: autoscaling/v1
+apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: web-deployment
@@ -461,7 +471,13 @@ spec:
     name: web-deployment
   minReplicas: 3
   maxReplicas: 5
-  targetCPUUtilizationPercentage: 50 
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 50
 
 EOF
 ```
@@ -563,7 +579,7 @@ kind: Deployment
       containers:
       - args:
         - --cert-dir=/tmp
-        - --secure-port=443
+        - --secure-port=4443
         - --kubelet-insecure-tls
         - --kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname
         - --kubelet-use-node-status-port
