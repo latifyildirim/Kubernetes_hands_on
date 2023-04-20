@@ -8,21 +8,21 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mango
+      name: mongo
   template:
     metadata:
       labels:
-        name: mango
+        name: mongo
         app: todoapp
     spec:
       containers:
-      - name: mango
+      - name: mongo
         image: mongo:5.0
         ports:
-          - containerPort: 27018
+          - containerPort: 27017
         volumeMounts:
           - name:  mongo-storage
-            mountPath:  /data/db
+            mountPath: /data/db
         
       volumes:
         - name: mongo-storage
