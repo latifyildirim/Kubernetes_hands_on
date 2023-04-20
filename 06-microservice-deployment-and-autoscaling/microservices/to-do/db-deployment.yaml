@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mango-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mango
+  template:
+    metadata:
+      labels:
+        name: mango
+    spec:
+      containers:
+      - name: mango
+        image: mongo:5.0
+        ports:
+          - containerPort: 27017
+        volumeMounts:
+          - name:  mongo-storage
+            mountPath:  /data/db
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "100m"
+      volumes:
+        - name: mongo-storage
+          persistentVolumeClaim:
+            claimName: db-pv-vol-claim
+        
