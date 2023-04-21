@@ -16,4 +16,4 @@ Purpose of the this hands-on training is to give the knowledge of how to install
 Purpose of the this hands-on training is to give the knowledge of basic operations in Kubernetes cluster.
 
 ### 🔖 [Kubernetes Networking and Service Discovery](https://github.com/latifyildirim/Kubernetes_hands_on/tree/main/03-Networking-service-discovery)
-Purpose of this hands-on training is to give the knowledge of Kubernetes Services.
+Purpose of this hands-on training is to give the knowledge of Kubernetes Services. 
