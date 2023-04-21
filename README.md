@@ -9,7 +9,7 @@ Kubernetes Hands On Studies  [![Awesome](https://cdn.rawgit.com/sindresorhus/awe
 
 ## Index 📜
 
-### 🔖 [Kubernetes_installing_on_ec2_linux2](https://github.com/latifyildirim/Kubernetes_hands_on/tree/main/01a-Installing-on-ec2-linux2)
+### 🔖 [Installing Kubernetes on Ubuntu running on AWS EC2 Instances](https://github.com/latifyildirim/Kubernetes_hands_on/tree/main/01a-Installing-on-ec2-linux2)
 Purpose of the this hands-on training is to give the knowledge of how to install and configure Kubernetes on Ubuntu 20.04 EC2 Instances.
 
 ### 🔖 [Kubernetes_basic_operations](https://github.com/latifyildirim/Kubernetes_hands_on/tree/main/02-Basic-operations)
