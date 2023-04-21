@@ -21,3 +21,5 @@ Purpose of this hands-on training is to give the knowledge of Kubernetes Service
 ### 🔖 [Kubernetes Volumes](https://github.com/latifyildirim/Kubernetes_hands_on/tree/main/04-pods-volumes)
 Purpose of this hands-on training is to give students the knowledge of Kubernetes Volumes. 
 
+### 🔖 [Managing Secrets and ConfigMaps](https://github.com/latifyildirim/Kubernetes_hands_on/tree/main/05-secrets-configmap)
+Purpose of the this hands-on training is to give students the knowledge of Kubernetes Secrets and config-map
