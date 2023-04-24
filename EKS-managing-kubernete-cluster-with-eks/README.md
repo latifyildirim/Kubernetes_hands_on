@@ -163,7 +163,7 @@ aws eks list-clusters
 aws eks list-clusters
 {
   "clusters": [
-    "my-cluster"
+    "latif-cluster"
   ]
 }
 ```
@@ -323,7 +323,7 @@ kubectl -n kube-system set image deployment.apps/cluster-autoscaler cluster-auto
 kind: Namespace
 apiVersion: v1
 metadata:
-   name: my-namespace
+   name: latif-namespace
    labels:
       app: container-info
 ---
@@ -331,7 +331,7 @@ apiVersion: v1
 kind: Service
 metadata:
    name: container-info-svc
-   namespace: my-namespace
+   namespace: latif-namespace
    labels:
       app: container-info
 spec:
@@ -348,7 +348,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: container-info-deploy
-  namespace: my-namespace
+  namespace: latif-namespace
   labels:
     app: container-info
 spec:
@@ -377,13 +377,13 @@ kubectl apply -f myapp.yml
 3. Run the command below.
 
 ```bash
-kubectl -n my-namespace get svc
+kubectl -n latif-namespace get svc
 ```
 
 4. In case the service remains in pending state then analyze it. 
 
 ```bash
-kubectl describe service container-info-svc -n my-namespace
+kubectl describe service container-info-svc -n latif-namespace
 ```
 
 Show the warning: "Error creating load balancer (will retry): failed to ensure load balancer for service default/guestbook: could not find any suitable subnets for creating the ELB"
@@ -401,7 +401,7 @@ Show the warning: "Error creating load balancer (will retry): failed to ensure l
 7. Describe service object and analyze it.
 
 ```bash
-kubectl describe service container-info-svc -n my-namespace
+kubectl describe service container-info-svc -n latif-namespace
 ```
 
 8. Get the ```External IP``` value from the previous command's output and visit that ip.
@@ -409,19 +409,19 @@ kubectl describe service container-info-svc -n my-namespace
 9. For scale up edit deployment. Change "replicas=30" in `myapp.yaml` file. Save the file.
 
 ```bash
-kubectl edit deploy container-info-deploy -n my-namespace
+kubectl edit deploy container-info-deploy -n latif-namespace
 ```
 
 10. Watch the pods while creating. Show that some pods are pending state.
 
 ```bash
-kubectl get po -n my-namespace -w
+kubectl get po -n latif-namespace -w
 ```
 
 11. Describe one of the pending pods. Show that there is no resource to run pods. So cluster-autoscaler scales out and create one more node.
 
 ```bash
-kubectl describe pod container-info-deploy-xxxxxx -n my-namespace
+kubectl describe pod container-info-deploy-xxxxxx -n latif-namespace
 kubectl get nodes
 ```
 
