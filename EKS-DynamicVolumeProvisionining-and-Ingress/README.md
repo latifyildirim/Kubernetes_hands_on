@@ -197,10 +197,10 @@ eksctl create iamserviceaccount \
 
 #### To add the Amazon EBS CSI add-on using eksctl
 
-- Run the following command. Replace cw-cluster with the name of your cluster, 111122223333 with your account ID, and AmazonEKS_EBS_CSI_DriverRole with the name of the IAM role created earlier.
+- Run the following command. Replace cw-cluster with the name of your cluster, 111122223333 with your account ID, and AmazonEKS_EBS_CSI_DriverRole with the name of the IAM role created earlier. # Bunu sag üst köseden alabilirz.
 
 ```bash
-eksctl create addon --name aws-ebs-csi-driver --cluster cw-cluster --service-account-role-arn arn:aws:iam::111122223333:role/AmazonEKS_EBS_CSI_DriverRole --force
+eksctl create addon --name aws-ebs-csi-driver --cluster cw-cluster --service-account-role-arn arn:aws:iam::768013060882:role/AmazonEKS_EBS_CSI_DriverRole --force
 ```
 
 - Firstly, check the StorageClass object in the cluster. 
@@ -393,7 +393,7 @@ mkdir repo && cd repo
 git init
 git remote add origin <origin-url>
 git config core.sparseCheckout true
-echo "subdirectory/under/repo/" >> .git/info/sparse-checkout  # do not put the repository folder name in the beginning
+echo "DevOps/hands-on/Kubernetes/S8-eks-02-DynamicVolumeProvisionining-and-Ingress/ingress-yaml-files/" >> .git/info/sparse-checkout  # do not put the repository folder name in the beginning
 git pull origin <branch-name>
 ```
 
