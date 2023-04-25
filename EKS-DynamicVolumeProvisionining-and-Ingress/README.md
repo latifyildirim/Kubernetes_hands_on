@@ -246,13 +246,13 @@ gp2 (default)    kubernetes.io/aws-ebs   Delete          WaitForFirstConsumer   
 - Create a persistentvolumeclaim with the following settings and show that new volume is created on aws management console.
 
 ```bash
-vi clarus-pv-claim.yaml
+vi latif-pv-claim.yaml
 ```
 ```yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: clarus-pv-claim
+  name: latif-pv-claim
 spec:
   accessModes:
     - ReadWriteOnce
@@ -263,7 +263,7 @@ spec:
 ```
 
 ```bash
-kubectl apply -f clarus-pv-claim.yaml
+kubectl apply -f latif-pv-claim.yaml
 ```
 
 - List the pv and pvc and explain the connections.
@@ -275,7 +275,7 @@ kubectl get pv,pvc
 
 ```text
 NAME                                    STATUS    VOLUME   CAPACITY   ACCESS MODES   STORAGECLASS   AGE
-persistentvolumeclaim/clarus-pv-claim   Pending                                      aws-standard   11s
+persistentvolumeclaim/latif-pv-claim   Pending                                      aws-standard   11s
 ```
 
 - Create a pod with the following settings.
@@ -302,7 +302,7 @@ spec:
   volumes:
   - name: aws-pd
     persistentVolumeClaim:
-      claimName: clarus-pv-claim
+      claimName: latif-pv-claim
 ```
 
 ```bash
@@ -363,7 +363,7 @@ gp2 (default)            kubernetes.io/aws-ebs   Delete          WaitForFirstCon
 
 ```bash
 kubectl delete -f pod-with-dynamic-storage.yaml
-kubectl delete -f clarus-pv-claim.yaml
+kubectl delete -f latif-pv-claim.yaml
 ```
 
 ## Part 4 - Ingress
