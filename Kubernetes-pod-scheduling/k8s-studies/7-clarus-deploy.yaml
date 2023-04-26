@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    environment: dev
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        resources: 
+        ports:
+        - containerPort: 80
+      # tolerations:
+      #   - key: "clarus"
+      #     operator: "Equal"
+      #     value: "way"
+      #     effect: "NoSchedule"
+      tolerations:
+        - key: "clarus"
+          operator: Exists
+          effect: NoSchedule

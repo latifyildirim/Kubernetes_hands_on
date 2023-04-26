@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    environment: dev
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        resources:
+        ports:
+        - containerPort: 80
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:  # Bu komutla "value" varsa o Node'da, yoksa da herhangi birinde olusturur.
+            - weight: 90                                    # Burasi eklendi
+              preference:                                   # Burasi eklendi
+                matchExpressions:       
+                  - key: size
+                    operator: In
+                    values: 
+                      - medium
+            - weight: 10                                    ## Burasi eklendi
+              preference:                                   ## Burasi eklendi
+                matchExpressions:                           ## Burasi eklendi
+                  - key: size                               ## Burasi eklendi
+                    operator: In                            ## Burasi eklendi
+                    values:                                 ## Burasi eklendi
+                      - large                               ## Burasi eklendi
