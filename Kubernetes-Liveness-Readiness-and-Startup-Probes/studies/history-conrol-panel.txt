@@ -1,0 +1,67 @@
+    1  k cluster-info
+    2  k get no
+    3  k apply -f .
+    4  k get po
+    5  k get po -o wide
+    6  cd ..
+    7  cd -
+    8  k delete rm clarusshop-776cff7d6d-8d8k2
+    9  k delete #clarusshop-776cff7d6d-8d8k2
+   10  k delete clarusshop-776cff7d6d-8d8k2
+   11  kubectl delete --help
+   12  k delete -l clarusshop-776cff7d6d-8d8k2
+   13  k get po
+   14  k delete clarusshop-776cff7d6d-8d8k2
+   15  k delete pod clarusshop-776cff7d6d-8d8k2
+   16  k get po
+   17  cd ..
+   18  k delete -f .
+   19  cd studies/
+   20  k delete -f .
+   21  k apply -f .
+   22  k delete -f .
+   23  k apply -f .
+   24  k delete -f .
+   25  k get po
+   26  k delete  po liveness
+   27  k delete  pod liveness
+   28  k get po
+   29  k apply -f .
+   30  k get po
+   31  k get svc,po
+   32  kubectl describe pod liveness-http
+   33  k get svc,po
+   34  kubectl describe pod liveness-http
+   35  k get svc,po
+   36  kubectl describe pod liveness-http
+   37  k get svc,po
+   38  k delete -f .
+   39  touch /tmp/healthy
+   40  ls -la /tmp/healthy
+   41  echo $?
+   42  rm -rf /tmp/healthy
+   43  echo $?
+   44  cat /tmp/healthy
+   45  echo $?
+   46  k apply -f liveness-exec.yaml 
+   47  kubectl describe pod liveness-exec
+   48  kubectl delete -f liveness-exec.yaml
+   49  k apply -f tcp-liveness.yaml 
+   50  k describe pod liveness-tcp
+   51  k apply -f tcp-liveness.yaml 
+   52  k delete -f tcp-liveness.yaml 
+   53  k apply -f tcp-liveness.yaml 
+   54  k describe pod liveness-tcp
+   55  k delete -f .
+   56  k apply -f startup.yaml 
+   57  kubectl describe pod startup-http
+   58  k delete -f startup.yaml 
+   59  k apply -f http-readiness.yaml 
+   60  kubectl describe ep readiness-http
+   61  k delete -f http-readiness.yaml 
+   62  k apply -f http-readiness.yaml 
+   63  kubectl get deployment
+   64  k delete -f .
+   65  k apply -f http-readiness.yaml 
+   66  k delete -f .
+   67  history > history.txt
