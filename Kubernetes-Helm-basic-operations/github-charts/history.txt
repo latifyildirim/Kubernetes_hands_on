@@ -1,5 +1,4 @@
     1  apt-get update
-    2  halt
     3  helm repo ls
     4  helm repo add bitnami https://charts.bitnami.com/bitnami
     5  helm repo ls
